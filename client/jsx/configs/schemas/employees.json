@@ -1,0 +1,22 @@
+{
+  "title": "Employees",
+  "entityType": "employees",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "title": "First Name",
+      "type": "string"
+    },
+    "lastName": {
+      "title": "Last Name",
+      "type": "string"
+    },
+    "departmentId": {
+      "title": "Department",
+      "type": "number",
+      "refersTo": "departments",
+      "referredTitle": "name"
+    }
+  },
+  "required": ["firstName", "lastName", "departmentId"]
+}

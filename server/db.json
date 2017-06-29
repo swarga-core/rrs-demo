@@ -1,0 +1,50 @@
+{
+  "departments": [
+    {
+      "name": "sdfsdfsdf23",
+      "id": 1
+    },
+    {
+      "name": "sdfsdfsd fsdfsdf",
+      "id": 2
+    },
+    {
+      "name": "4534 777 erg asfd sADFASDF",
+      "id": 4
+    },
+    {
+      "name": "SDFSDF SADsd ",
+      "id": 5
+    },
+    {
+      "name": "ddddddd",
+      "id": 6
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "eeeeeeeeee",
+      "lastName": "3333",
+      "departmentId": "4",
+      "id": 1
+    },
+    {
+      "firstName": "sddsdd",
+      "lastName": "sdsfsdf",
+      "departmentId": "2",
+      "id": 2
+    },
+    {
+      "firstName": "sdfsdfsdfsdf",
+      "lastName": "sdfsdfsd222",
+      "departmentId": "4",
+      "id": 3
+    },
+    {
+      "firstName": "dddd",
+      "lastName": "sdff",
+      "departmentId": "6",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,754 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"di",
+				"dispatch"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"ref",
+				"references"
+			],
+			[
+				"is",
+				"isEditing"
+			],
+			[
+				"fie",
+				"fieldDesc"
+			],
+			[
+				"s",
+				"state"
+			],
+			[
+				"render",
+				"renderHeader"
+			],
+			[
+				"fil",
+				"fieldDesc"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"ren",
+				"renderFields"
+			],
+			[
+				"field",
+				"fieldName"
+			],
+			[
+				"in",
+				"inputs"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"rend",
+				"renderList"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"valid",
+				"validateMimeType"
+			],
+			[
+				"file",
+				"fileName"
+			],
+			[
+				"inv",
+				"invalidCount"
+			],
+			[
+				"max",
+				"maxHeight"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"upd",
+				"updateId"
+			],
+			[
+				"image",
+				"imageName"
+			],
+			[
+				"fi",
+				"fieldName"
+			],
+			[
+				"n",
+				"nowrap"
+			],
+			[
+				"curre",
+				"currentSortBy"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"sele",
+				"selectFields"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"pre",
+				"pre-wrap"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"__",
+				"__notFound"
+			],
+			[
+				"set",
+				"setParts"
+			],
+			[
+				"where",
+				"whereParts"
+			],
+			[
+				"query",
+				"queryValues"
+			],
+			[
+				"is_in",
+				"is_integer"
+			],
+			[
+				"view",
+				"viewClassName"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"func_",
+				"func_get_args"
+			],
+			[
+				"templ",
+				"templateName"
+			],
+			[
+				"te",
+				"templateName"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"pr",
+				"protected"
+			],
+			[
+				"buil",
+				"buildRootController"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"cla",
+				"className"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "client/jsx/containers/App.jsx",
+			"settings":
+			{
+				"buffer_size": 1845,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "import React, { Component } from 'react';\nimport { connect } from 'react-redux';\nimport PropTypes from 'prop-types';\nimport _ from 'lodash';\n\nimport EntityList from '../components/EntityList';\nimport * as appActions from '../actions/appActions';\nimport * as entityActions from '../actions/entityActions';\n\n\nclass ListContainer extends Component {\n\t\n\trender() {\n\t\treturn <EntityList\t{...this.props}\t/>\n\t}\n\n}\n\nexport default connect(mapStateToProps, mapDispatchToProps)(ListContainer);\n\n// function mapStateToProps(state, ownProps) {\n// \tconst { schema } = ownProps;\n// \tconst { entityType } = schema;\n//   const items = state.entities[entityType];\n//   const editing = state.app.editing;\n\n//   const references = _.transform(schema.properties, (refs, fieldDesc, fieldName) => {\n//   \tconst { refersTo, type, referredTitle } = fieldDesc;\n//   \tif (type == 'number' && refersTo) {\n//   \t\trefs[refersTo] = _.mapValues(state.entities[refersTo], (entity, id) => {\n//   \t\t\treturn entity[referredTitle];\n//   \t\t});\n//   \t}\n//   })\n\n//   return {\n//   \tentityType,\n//   \tschema,\n//     items,\n//     editing,\n//     references\n//   };\n// }\n\n// function mapDispatchToProps(dispatch, ownProps) {\n// \tconst { schema } = ownProps;\n// \tconst { entityType } = schema;\n//   return {\n//   \thandlers: {\n// \t    onStartEntityEditing: (id, field) => {\n// \t\t\t\tdispatch(appActions.startEntityEditing(entityType, id, field));\n// \t\t\t},\n\n// \t\t\tonCancelItemEditing: () => {\n// \t\t\t\tdispatch(appActions.onCancelEntityEditing());\n// \t\t\t},\n\n// \t\t\tonAddNewEntity: () => {\n// \t\t\t\tdispatch(entityActions.addNewEntity(entityType));\n// \t\t\t\tdispatch(appActions.startEntityEditing(entityType, 'new', schema.required[0]));\n// \t\t\t},\n\n// \t\t\tonChangeEntityValue: (id, fieldName, newValue, oldEntity) => {\n// \t\t\t\tif (id == 'new') {\n// \t\t\t\t\tdispatch(entityActions.changeEntityValue(entityType, id, fieldName, newValue));\n// \t\t\t\t\tconst required = schema.required;\n// \t\t\t\t\tlet index = required.indexOf(fieldName);\n// \t\t\t\t\tif (++index < required.length) {\n// \t\t\t\t\t\tprocess.nextTick(()=>{ // по хорошему, такой маневр нужно выносить в сагу\n// \t\t\t\t\t\t\tdispatch(appActions.startEntityEditing(entityType, 'new', required[index]));\n// \t\t\t\t\t\t});\n// \t\t\t\t\t} else {\n// \t\t\t\t\t\tdispatch(entityActions.syncNewEntity(entityType));\n// \t\t\t\t\t}\n// \t\t\t\t} else {\n// \t\t\t\t\tconst updatedEntity = oldEntity.set(fieldName, newValue);\n// \t\t\t\t\tdispatch(entityActions.updateEntity(entityType, updatedEntity));\n// \t\t\t\t}\n// \t\t\t},\n\n// \t\t\tonAddNewItem: (itemData) => {\n// \t\t\t\tdispatch(entityActions.addNewEntity(entityType, itemData));\n// \t\t\t},\n\n// \t\t\tonRemoveEntity: (id) => {\n// \t\t\t\tif (id == 'new') {\n// \t\t\t\t\tdispatch(entityActions.removeNewEntity(entityType));\n// \t\t\t\t} else {\n// \t\t\t\t\tdispatch(entityActions.removeEntity(entityType, id));\n// \t\t\t\t}\n// \t\t\t},\n// \t\t}\n// \t}\n// }\n\n// ListContainer.propTypes = {\n//   items: PropTypes.object.isRequired,\n//   entityType: PropTypes.string.isRequired,\n//   schema: PropTypes.object.isRequired,\n//   editing: PropTypes.oneOfType([\n//   \t\tPropTypes.object,\n//   \t\tPropTypes.bool,\n//   \t]).isRequired,\n//  \treferences: PropTypes.object,\n//   handlers: PropTypes.object.isRequired,\n// };\n\n\n// export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);\n",
+			"file": "client/jsx/containers/ListContainer.jsx",
+			"file_size": 2960,
+			"file_write_time": 131431489438915683,
+			"settings":
+			{
+				"buffer_size": 3232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/sagas/sagas.js",
+			"settings":
+			{
+				"buffer_size": 1775,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/swarga/Projects/rrs",
+		"/home/swarga/Projects/rrs/client",
+		"/home/swarga/Projects/rrs/client/jsx",
+		"/home/swarga/Projects/rrs/client/jsx/components",
+		"/home/swarga/Projects/rrs/client/jsx/containers",
+		"/home/swarga/Projects/rrs/client/jsx/sagas",
+		"/home/swarga/Projects/rrs/client/jsx/utls",
+		"/home/swarga/Projects/rrs/server",
+		"/home/swarga/Projects/rrs/server/public"
+	],
+	"file_history":
+	[
+		"/home/swarga/Projects/rrs/client/jsx/utls/NavLink.jsx",
+		"/home/swarga/Projects/rrs/client/jsx/components/Home.jsx",
+		"/home/swarga/Projects/rrs/client/jsx/containers/ListContainerWithSchema.jsx",
+		"/home/swarga/Projects/rrs/server/public/index.html",
+		"/home/swarga/Projects/rrs/package.json",
+		"/home/swarga/Projects/rrs/client/jsx/components/StringEditor.jsx",
+		"/home/swarga/Projects/rrs/client/jsx/components/NavLink.jsx",
+		"/home/swarga/Projects/rrs/index.html",
+		"/home/swarga/Projects/ariya/server/public/list.json",
+		"/home/swarga/Projects/ariya/client/jsx/components/__tests__/__snapshots__/stringEditor.jsx.snap",
+		"/home/swarga/Projects/ariya/client/jsx/components/__test__/stringEditor.jsx",
+		"/home/swarga/Projects/ariya/.gitignore",
+		"/home/swarga/Projects/ariya/client/jsx/containers/App.jsx",
+		"/home/swarga/Projects/ariya/client/styles/app.css",
+		"/home/swarga/Projects/ariya/server/db.json",
+		"/home/swarga/Projects/ariya/client/jsx/containers/ListContainer.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/reducers/entities.js",
+		"/home/swarga/Projects/ariya/client/jsx/components/Home.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/actions/entityActions.js",
+		"/home/swarga/Projects/ariya/client/jsx/configs/ActionTypes.jsx",
+		"/home/swarga/Projects/ariya/.todo",
+		"/home/swarga/Projects/ariya/client/jsx/components/EntityList.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/EntityItem.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/NavLink.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/main.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/configs/configureStore.js",
+		"/home/swarga/Projects/ariya/client/jsx/actions/appActions.js",
+		"/home/swarga/Projects/ariya/client/jsx/reducers/app.js",
+		"/home/swarga/Projects/ariya/client/jsx/sagas/services.js",
+		"/home/swarga/Projects/ariya/client/jsx/sagas/sagas.js",
+		"/home/swarga/Projects/ariya/server/build/public/index.html",
+		"/home/swarga/Projects/ariya/package.json",
+		"/home/swarga/Projects/ariya/webpack.config.js",
+		"/home/swarga/Projects/ariya/webpack.prod.config.js",
+		"/home/swarga/Projects/ariya/server/index.js",
+		"/home/swarga/Projects/ariya/client/jsx/components/ReferenceEditor.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/configs/schemas/employees.json",
+		"/home/swarga/Projects/ariya/client/jsx/components/StringEditor.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/containers/EmployeeListContainer.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/configs/schemas/departments.json",
+		"/home/swarga/Projects/ariya/client/jsx/containers/DepartmentListContainer.jsx",
+		"/home/swarga/Projects/ariya/server/public/index.html",
+		"/home/swarga/Projects/ariya/client/jsx/components/DepartmentList.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/DepartmentItem.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/constants/ActionTypes.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/EmployeeListContainer.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/DepartmentListContainer.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/components/MatchedLink.jsx",
+		"/home/swarga/Projects/ariya/client/jsx/containers/App.js",
+		"/home/swarga/Projects/ariya/client/js/main.js",
+		"/home/swarga/Projects/ariya/client/js/main.jsx",
+		"/home/swarga/Projects/ariya/.babelrc",
+		"/home/swarga/Projects/php-mvc/app/views/task-view.php",
+		"/home/swarga/Projects/php-mvc/framework/view.php",
+		"/home/swarga/Projects/php-mvc/framework/response.php",
+		"/home/swarga/Projects/php-mvc/framework/controller.php",
+		"/home/swarga/Projects/php-mvc/index.php",
+		"/home/swarga/Projects/php-mvc/app/models/task.php",
+		"/home/swarga/Projects/php-mvc/app/views/task-view.tpl.php",
+		"/home/swarga/Projects/php-mvc/app/controllers/user-controller.php",
+		"/home/swarga/Projects/php-mvc/app/views/menu-bar-view.php",
+		"/home/swarga/Projects/php-mvc/app/views/login-area-view.php",
+		"/home/swarga/Projects/php-mvc/framework/app.php",
+		"/home/swarga/Projects/php-mvc/app/views/main-layout.tpl.php",
+		"/home/swarga/Projects/php-mvc/framework/model.php",
+		"/home/swarga/Projects/php-mvc/app/models/user.php",
+		"/home/swarga/Projects/php-mvc/app/controllers/task-controller.php",
+		"/home/swarga/Projects/php-mvc/app/views/task-table-view.php",
+		"/home/swarga/Projects/php-mvc/assets/css/bundle.css",
+		"/home/swarga/Projects/php-mvc/assets/js/bundle.js",
+		"/home/swarga/Projects/php-mvc/app/views/login-area-view.tpl.php",
+		"/home/swarga/Projects/php-mvc/app/views/task-table-view.tpl.php",
+		"/home/swarga/Projects/php-mvc/framework/utils/image-builder.php",
+		"/home/swarga/Projects/php-mvc/app/views/menu-bar-view.tpl.php",
+		"/home/swarga/Projects/php-mvc/app/views/new-task-view.php",
+		"/home/swarga/Projects/php-mvc/app/views/subindex.tpl.php",
+		"/home/swarga/Projects/php-mvc/app/controllers/main-controller.php",
+		"/home/swarga/Projects/php-mvc/app/controllers/file-controller.php",
+		"/home/swarga/Projects/php-mvc/app/views/index.tpl.php",
+		"/home/swarga/Projects/php-mvc/assets/js/bootstrap.js",
+		"/home/swarga/Projects/php-mvc/assets/css",
+		"/home/swarga/Projects/php-mvc/app/views/ext-view.tpl.php",
+		"/home/swarga/Projects/php-mvc/app/views/ext-view.php",
+		"/home/swarga/Projects/php-mvc/framework/request.php",
+		"/home/swarga/Projects/php-mvc/.htaccess",
+		"/home/swarga/Projects/php-mvc/php-mvc",
+		"/tmp/sublime-sftp-browse-1496524855/php-mvc/swarga/www/index.html",
+		"/home/swarga/Projects/php-mvc/sftp-config.json",
+		"/home/swarga/Data/Workspace/modequip/app/app.js",
+		"/home/swarga/.config/sublime-text-3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/run/media/swarga/Data/Workspace/modequip/app/js/gallery.js",
+		"/home/swarga/.config/sublime-text-3/Packages/User/ColorHighlighter.sublime-settings"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/home/swarga/Projects/ariya/,-/node_modules/*",
+			"/home/swarga/Projects/ariya/",
+			"/home/swarga/Projects/php-mvc/",
+			"/",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"schema",
+			"Nav",
+			"div",
+			"NavLink",
+			"Nav",
+			"NavLink",
+			"activeClassName=\"active\"",
+			"activeClassName",
+			"item",
+			"div",
+			"StringEditor",
+			"stringEditor",
+			"React",
+			"FETCH",
+			"entity",
+			"REMOVE_ENTITY",
+			"onFire",
+			"CANCEL_ENTITY_EDITING",
+			"lodash",
+			"babel",
+			"ActionTypes",
+			"REMOVE_ENTITY",
+			"h5",
+			"ADD_NEW_ENTITY",
+			"list",
+			"post",
+			"REMOVE_ENTITY",
+			"fetchedEntity",
+			"entitiesFetchedSucceeded",
+			"onChangeEntityValue",
+			"changeEntityValue",
+			"UPDATE_ENTITY_FIELD",
+			"entitY",
+			"CHANGE_ENTITY_VALUE",
+			"sagaMiddleware",
+			"ENTITIES_FETCH_SUCCEEDED",
+			"response",
+			"REMOVE_ENTITY",
+			"items",
+			"items: PropTypes.object.isRequired,",
+			"dist",
+			"departmentId",
+			"employees",
+			"lastName",
+			"firstName",
+			"id",
+			"name",
+			"id",
+			"'",
+			"sdfsdfsdf",
+			"name",
+			"entityType",
+			"item",
+			"items",
+			"properties",
+			"action",
+			"entityType",
+			"REMOVE_ENTITY",
+			"index",
+			"onRemoveItem",
+			"onItemFieldChange",
+			"onEditExistedItem",
+			"cancelEntityEditing",
+			"onCancelItemEditing",
+			"keys",
+			"onEditNewItem",
+			"value",
+			"sourceValue",
+			"value",
+			"sourceValue",
+			"string",
+			"fieldDesc",
+			"StringEditor",
+			"onRemoveItem",
+			"onUpdateItem",
+			"onItemFieldEditClick",
+			"isEditing",
+			"onBlur",
+			"input",
+			"Glyphicon",
+			"select",
+			"input",
+			"EntityItem",
+			"isCreating",
+			"isEditing",
+			"fields",
+			"class",
+			"for",
+			"departments",
+			"DepartmentListContainer",
+			"firstName",
+			"'departments'",
+			"departments",
+			"DepartmentListContainer",
+			"name",
+			"onEditItem",
+			"renderNew",
+			"onItemFieldEditClick",
+			"onItemRowClick",
+			"addNew",
+			"actions",
+			"entityData",
+			"NEW_ENTITY",
+			"REMOVE_ENTITY",
+			"onRemoveItem",
+			"action",
+			"dispatch",
+			"CHANGE_ENTITY_VALUE",
+			"MatchedLink",
+			"fieldId",
+			"Button",
+			"Grid",
+			"focusEditor",
+			"inputs",
+			"entityFields",
+			"DepartmentList",
+			"DepartmentItem",
+			"state",
+			"DepartmentItem",
+			"handler",
+			"newEntity",
+			"department",
+			"onEditItem",
+			"onEditedFieldChange",
+			"onEditorKeyDown",
+			"components",
+			"DepartmentList",
+			"redusers"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"onRemoveEntity",
+			"onChangeEntityValue",
+			"onStartEntityEditing",
+			"onCancelEntityEditing",
+			"onAddNewEntity",
+			"task-image-upload-btn",
+			"TaskController"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "client/jsx/containers/App.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/jsx/containers/ListContainer.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								307,
+								312
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/jsx/sagas/sagas.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1775,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								829,
+								829
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 63.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 132.0
+	},
+	"pinned_build_system": "",
+	"project": "rrs.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 370.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
