@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-// import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import Table  from 'react-bootstrap/lib/Table';
 import Button  from 'react-bootstrap/lib/Button';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import EntityItem from '../components/EntityItem';
+import FilterBar from '../components/FilterBar';
 import { entityListSelector } from '../selectors/entitySelectors';
 
 
@@ -14,10 +15,16 @@ import { entityListSelector } from '../selectors/entitySelectors';
 class EntityList extends Component {
 
 	renderHeader() {
-		const { properties } = this.props.schema;
+		const { properties, filterBy } = this.props.schema;
 		return Object.keys(properties).map(fieldName => {
 			const fieldDesc = properties[fieldName];
-			return <th key={fieldName}>{fieldDesc.title}</th>
+			const isFilerable = _.includes(filterBy, fieldName);
+			return (
+				<th key={fieldName}>
+					{fieldDesc.title}
+					{isFilerable ? <Glyphicon glyph="search" className="filterable-mark"/> : ''}
+				</th>
+			)
 		});
 	}
 
@@ -57,16 +64,18 @@ class EntityList extends Component {
 	}
 
 	render() {
+		const { state, schema, actions } = this.props;
 		return (
 			<div className="panel panel-default">
 				<div className="panel-heading">
 					<h1>{this.props.schema.title}</h1>
+					<FilterBar state={state} schema={schema}	actions={actions}/>
 				</div>
 				<div className="panel-body">
 					<Table striped hover>
 					<thead>
 						<tr>
-							<th data-field-name="id">#</th>
+							<th data-fieldname="id">#</th>
 							{this.renderHeader()}
 							<th className="control-cell"></th>
 						</tr>

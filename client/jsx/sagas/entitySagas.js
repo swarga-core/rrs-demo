@@ -15,11 +15,6 @@ export function* fetchEntities(action) {
   yield put(entityActions.entitiesFetchSucceeded(entityType, entities));
 }
 
-export function* watchFetchEntities() {
-  yield takeEvery(types.FETCH_ENTITIES, fetchEntities);
-}
-
-
 export function* updateEntityField(action) {
   const { schema, id, fieldName, newValue } = action;
   const { entityType } = schema;
@@ -31,11 +26,9 @@ export function* updateEntityField(action) {
   yield put(entityActions.entityFetchSuccessed(entityType, entity, false));
   if (id == 'new') {
     const requiredField = _.find(schema.required, (fieldName) => ( _.isEmpty(entity[fieldName]) ));
-    console.log(requiredField);
-    console.log(entity);
     if (requiredField) {
       yield delay(1);
-      yield put(entityActions.startEntityEditing(schema.entityType, id, requiredField));
+      yield put(entityActions.startEntityEditing(entityType, id, requiredField));
     } else {
       entity = yield call(api.syncNewEntity, entityType, entity.without('id'));
       yield put(entityActions.removeNewEntity(entityType));
@@ -44,11 +37,6 @@ export function* updateEntityField(action) {
   }
 }
 
-export function* watchUpdateEntityField() {
-  yield takeEvery(types.UPDATE_ENTITY_FIELD, updateEntityField);
-}
-
-
 export function* removeEntity(action) {
 	const { entityType, id } = action;
   if (id == 'new') {
@@ -56,12 +44,22 @@ export function* removeEntity(action) {
   } else {
     yield call(api.removeEntity, entityType, id);
   }
-	yield put({type: types.ENTITY_REMOVE_SUCCEEDED, entityType, id });
+	yield put(entityActions.removeEntitySuccessed(entityType, id));
+}
+
+
+export function* watchFetchEntities() {
+  yield takeEvery(types.FETCH_ENTITIES, fetchEntities);
+}
+
+export function* watchUpdateEntityField() {
+  yield takeEvery(types.UPDATE_ENTITY_FIELD, updateEntityField);
 }
 
 export function* watchRemoveEntity() {
   yield takeEvery(types.REMOVE_ENTITY, removeEntity);
 }
+
 
 export default function* rootSaga() {
   yield all([

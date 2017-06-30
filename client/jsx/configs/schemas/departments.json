@@ -9,5 +9,6 @@
     }
   },
   "order": ["name"],
-  "required": ["name"]
+  "required": ["name"],
+  "filterBy": ["name"]
 }

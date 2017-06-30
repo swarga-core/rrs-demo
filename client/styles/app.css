@@ -61,9 +61,8 @@
   text-align: center;
 }
 
-#main [data-field-name="id"] {
+#main [data-fieldname="id"] {
   width: 70px;
-  text-align: right;
 }
 
 #main .panel-footer {
@@ -76,4 +75,30 @@
 
 #main option.placeholder {
   color: #aaa;
+}
+
+#main .panel-heading {
+  position: relative;
+}
+
+#main .entity-filter {
+  position: absolute;
+  top: 30%;
+  right: 14px;
+}
+
+#main .entity-filter button {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  z-index: 100;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+#main .filterable-mark {
+  font-size: 0.5em;
+  vertical-align: top;
+  margin-left: 3px;
 }

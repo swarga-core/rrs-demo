@@ -19,5 +19,6 @@
     }
   },
   "order": ["firstName", "lastName", "depId"],
-  "required": ["firstName", "lastName", "depId"]
+  "required": ["firstName", "lastName", "depId"],
+  "filterBy": ["firstName", "lastName"]
 }

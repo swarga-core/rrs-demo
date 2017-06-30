@@ -57,6 +57,13 @@ export function addNewEntity(entityType) {
   };
 }
 
+export function removeNewEntity(entityType) {
+  return {
+    type: types.REMOVE_NEW_ENTITY,
+    entityType,
+  };
+}
+
 export function removeEntity(entityType, id) {
   return {
     type: types.REMOVE_ENTITY,
@@ -65,9 +72,25 @@ export function removeEntity(entityType, id) {
   };
 }
 
-export function removeNewEntity(entityType) {
+export function removeEntitySuccessed(entityType, id) {
   return {
-    type: types.REMOVE_NEW_ENTITY,
+    type: types.ENTITY_REMOVE_SUCCEEDED,
     entityType,
+    id,
+  };
+}
+
+export function setEntityFilter(schema, query) {
+  return {
+    type: types.SET_ENTITY_FILTER,
+    schema,
+    query,
+  };
+}
+
+export function resetEntityFilter(schema) {
+  return {
+    type: types.RESET_ENTITY_FILTER,
+    schema,
   };
 }
