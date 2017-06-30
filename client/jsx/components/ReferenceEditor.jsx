@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+import { referredEntitiesSelector } from '../selectors/entitySelectors';
+
+
+
 
 class ReferenceEditor extends Component {
 
@@ -35,8 +39,8 @@ class ReferenceEditor extends Component {
 		this.props.onEditorCancel();
 	}
 
-	renderOptions() {
-		const { item, fieldName, references } = this.props;
+	renderOptions(references) {
+		const { item, fieldName } = this.props;
 		return _.map(+item[fieldName] ? references : { '0': ' ', ...references }, (value, id) => {
 			const placeholderClass = +id ? '' : 'placeholder'
 			return <option className={placeholderClass} key={id} value={id}>{value}</option>
@@ -44,37 +48,37 @@ class ReferenceEditor extends Component {
 	}
 
 	render() {
-		const { item, fieldName, isEditing } = this.props;
+		const { item, fieldName, isEditing, state } = this.props;
+		const references = referredEntitiesSelector(state, this.props);
 		if (isEditing) {
 			return (
 				<select
 					className="form-control input-sm"
 					defaultValue={item[fieldName]}
-					ref={(editor) => this.editor = editor}
+					ref={editor=> this.editor = editor}
 					onChange={this.onChange}
 					onKeyDown={this.onEditorKeyDown}
 					onBlur={this.onBlur}
 				>
-					{this.renderOptions()}
+					{this.renderOptions(references)}
 				</select>
 			);
 		} else {
-			const { item, fieldName, references } = this.props;
 			const id = item[fieldName];
-			return <div>{+id ? references[id] || '?' : '?'}</div>
+			return <div>{+id ? references[id] || '' : ''}</div>
 		}
 	}
 
 }
 
 ReferenceEditor.propTypes = {
+  fieldName: PropTypes.string.isRequired,
   item: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired,
   schema: PropTypes.object.isRequired,
   isEditing: PropTypes.bool.isRequired,
-  fieldName: PropTypes.string.isRequired,
   onEditorUpdate: PropTypes.func.isRequired,
   onEditorCancel: PropTypes.func.isRequired,
-  references: PropTypes.object.isRequired,
 };
 
 export default ReferenceEditor;

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"s",
+				"schema"
+			],
+			[
+				"next",
+				"nextEditing"
+			],
+			[
+				"ac",
+				"actions"
+			],
+			[
 				"font-",
 				"font-size"
 			],
@@ -36,10 +48,6 @@
 				"fieldDesc"
 			],
 			[
-				"s",
-				"state"
-			],
-			[
 				"render",
 				"renderHeader"
 			],
@@ -70,10 +78,6 @@
 			[
 				"in",
 				"inputs"
-			],
-			[
-				"ac",
-				"action"
 			],
 			[
 				"padd",
@@ -237,21 +241,83 @@
 			}
 		},
 		{
-			"contents": "import React, { Component } from 'react';\nimport { connect } from 'react-redux';\nimport PropTypes from 'prop-types';\nimport _ from 'lodash';\n\nimport EntityList from '../components/EntityList';\nimport * as appActions from '../actions/appActions';\nimport * as entityActions from '../actions/entityActions';\n\n\nclass ListContainer extends Component {\n\t\n\trender() {\n\t\treturn <EntityList\t{...this.props}\t/>\n\t}\n\n}\n\nexport default connect(mapStateToProps, mapDispatchToProps)(ListContainer);\n\n// function mapStateToProps(state, ownProps) {\n// \tconst { schema } = ownProps;\n// \tconst { entityType } = schema;\n//   const items = state.entities[entityType];\n//   const editing = state.app.editing;\n\n//   const references = _.transform(schema.properties, (refs, fieldDesc, fieldName) => {\n//   \tconst { refersTo, type, referredTitle } = fieldDesc;\n//   \tif (type == 'number' && refersTo) {\n//   \t\trefs[refersTo] = _.mapValues(state.entities[refersTo], (entity, id) => {\n//   \t\t\treturn entity[referredTitle];\n//   \t\t});\n//   \t}\n//   })\n\n//   return {\n//   \tentityType,\n//   \tschema,\n//     items,\n//     editing,\n//     references\n//   };\n// }\n\n// function mapDispatchToProps(dispatch, ownProps) {\n// \tconst { schema } = ownProps;\n// \tconst { entityType } = schema;\n//   return {\n//   \thandlers: {\n// \t    onStartEntityEditing: (id, field) => {\n// \t\t\t\tdispatch(appActions.startEntityEditing(entityType, id, field));\n// \t\t\t},\n\n// \t\t\tonCancelItemEditing: () => {\n// \t\t\t\tdispatch(appActions.onCancelEntityEditing());\n// \t\t\t},\n\n// \t\t\tonAddNewEntity: () => {\n// \t\t\t\tdispatch(entityActions.addNewEntity(entityType));\n// \t\t\t\tdispatch(appActions.startEntityEditing(entityType, 'new', schema.required[0]));\n// \t\t\t},\n\n// \t\t\tonChangeEntityValue: (id, fieldName, newValue, oldEntity) => {\n// \t\t\t\tif (id == 'new') {\n// \t\t\t\t\tdispatch(entityActions.changeEntityValue(entityType, id, fieldName, newValue));\n// \t\t\t\t\tconst required = schema.required;\n// \t\t\t\t\tlet index = required.indexOf(fieldName);\n// \t\t\t\t\tif (++index < required.length) {\n// \t\t\t\t\t\tprocess.nextTick(()=>{ // по хорошему, такой маневр нужно выносить в сагу\n// \t\t\t\t\t\t\tdispatch(appActions.startEntityEditing(entityType, 'new', required[index]));\n// \t\t\t\t\t\t});\n// \t\t\t\t\t} else {\n// \t\t\t\t\t\tdispatch(entityActions.syncNewEntity(entityType));\n// \t\t\t\t\t}\n// \t\t\t\t} else {\n// \t\t\t\t\tconst updatedEntity = oldEntity.set(fieldName, newValue);\n// \t\t\t\t\tdispatch(entityActions.updateEntity(entityType, updatedEntity));\n// \t\t\t\t}\n// \t\t\t},\n\n// \t\t\tonAddNewItem: (itemData) => {\n// \t\t\t\tdispatch(entityActions.addNewEntity(entityType, itemData));\n// \t\t\t},\n\n// \t\t\tonRemoveEntity: (id) => {\n// \t\t\t\tif (id == 'new') {\n// \t\t\t\t\tdispatch(entityActions.removeNewEntity(entityType));\n// \t\t\t\t} else {\n// \t\t\t\t\tdispatch(entityActions.removeEntity(entityType, id));\n// \t\t\t\t}\n// \t\t\t},\n// \t\t}\n// \t}\n// }\n\n// ListContainer.propTypes = {\n//   items: PropTypes.object.isRequired,\n//   entityType: PropTypes.string.isRequired,\n//   schema: PropTypes.object.isRequired,\n//   editing: PropTypes.oneOfType([\n//   \t\tPropTypes.object,\n//   \t\tPropTypes.bool,\n//   \t]).isRequired,\n//  \treferences: PropTypes.object,\n//   handlers: PropTypes.object.isRequired,\n// };\n\n\n// export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);\n",
 			"file": "client/jsx/containers/ListContainer.jsx",
-			"file_size": 2960,
-			"file_write_time": 131431489438915683,
 			"settings":
 			{
-				"buffer_size": 3232,
+				"buffer_size": 3414,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/jsx/sagas/sagas.js",
+			"file": "client/jsx/components/EntityList.jsx",
 			"settings":
 			{
-				"buffer_size": 1775,
+				"buffer_size": 2238,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/components/EntityItem.jsx",
+			"settings":
+			{
+				"buffer_size": 3473,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/components/StringEditor.jsx",
+			"settings":
+			{
+				"buffer_size": 1461,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/components/ReferenceEditor.jsx",
+			"settings":
+			{
+				"buffer_size": 2511,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/configs/schemas/employees.json",
+			"settings":
+			{
+				"buffer_size": 456,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/reducers/app.js",
+			"settings":
+			{
+				"buffer_size": 806,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/actions/appActions.js",
+			"settings":
+			{
+				"buffer_size": 51,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/actions/entityActions.js",
+			"settings":
+			{
+				"buffer_size": 1543,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -295,8 +361,12 @@
 		"/home/swarga/Projects/rrs",
 		"/home/swarga/Projects/rrs/client",
 		"/home/swarga/Projects/rrs/client/jsx",
+		"/home/swarga/Projects/rrs/client/jsx/actions",
 		"/home/swarga/Projects/rrs/client/jsx/components",
+		"/home/swarga/Projects/rrs/client/jsx/configs",
+		"/home/swarga/Projects/rrs/client/jsx/configs/schemas",
 		"/home/swarga/Projects/rrs/client/jsx/containers",
+		"/home/swarga/Projects/rrs/client/jsx/reducers",
 		"/home/swarga/Projects/rrs/client/jsx/sagas",
 		"/home/swarga/Projects/rrs/client/jsx/utls",
 		"/home/swarga/Projects/rrs/server",
@@ -304,6 +374,7 @@
 	],
 	"file_history":
 	[
+		"/home/swarga/Projects/rrs/client/jsx/components/EntityItem.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/utls/NavLink.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/components/Home.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/containers/ListContainerWithSchema.jsx",
@@ -406,6 +477,7 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"/home/swarga/Projects/rrs/,-/home/swarga/Projects/rrs/node_modules/",
 			"/home/swarga/Projects/ariya/,-/node_modules/*",
 			"/home/swarga/Projects/ariya/",
 			"/home/swarga/Projects/php-mvc/",
@@ -418,6 +490,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getEntityItem",
+			"key",
+			"getRefEntityTitles",
+			"getRefEntityList",
+			"getRefEntityListFilter",
+			"getEntityListFilter",
+			"schema",
+			"object",
+			"item",
+			"string",
+			"actions",
+			"handlers",
+			"fieldName",
+			"object",
+			"state",
+			"Component",
+			"Button",
+			"Table",
+			"handlers",
+			"schema",
+			"handlers",
+			"ownProps",
+			"connect",
+			"store",
+			"removeNewEntity",
 			"schema",
 			"Nav",
 			"div",
@@ -520,32 +617,7 @@
 			"addNew",
 			"actions",
 			"entityData",
-			"NEW_ENTITY",
-			"REMOVE_ENTITY",
-			"onRemoveItem",
-			"action",
-			"dispatch",
-			"CHANGE_ENTITY_VALUE",
-			"MatchedLink",
-			"fieldId",
-			"Button",
-			"Grid",
-			"focusEditor",
-			"inputs",
-			"entityFields",
-			"DepartmentList",
-			"DepartmentItem",
-			"state",
-			"DepartmentItem",
-			"handler",
-			"newEntity",
-			"department",
-			"onEditItem",
-			"onEditedFieldChange",
-			"onEditorKeyDown",
-			"components",
-			"DepartmentList",
-			"redusers"
+			"NEW_ENTITY"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -570,7 +642,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -586,8 +658,8 @@
 						"selection":
 						[
 							[
-								258,
-								258
+								1529,
+								1529
 							]
 						],
 						"settings":
@@ -600,7 +672,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -609,15 +681,44 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3232,
+						"buffer_size": 3414,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								307,
-								312
+								1188,
+								1188
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/jsx/components/EntityList.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								965,
+								965
 							]
 						],
 						"settings":
@@ -629,24 +730,199 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "client/jsx/sagas/sagas.js",
-					"semi_transient": true,
+					"buffer": 3,
+					"file": "client/jsx/components/EntityItem.jsx",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1775,
+						"buffer_size": 3473,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								829,
-								829
+								2240,
+								2240
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/jsx/components/StringEditor.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1143,
+								1143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/jsx/components/ReferenceEditor.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								428,
+								428
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/jsx/configs/schemas/employees.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "client/jsx/reducers/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "client/jsx/actions/appActions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "client/jsx/actions/entityActions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1116,
+								1116
 							]
 						],
 						"settings":
@@ -656,10 +932,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 315.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

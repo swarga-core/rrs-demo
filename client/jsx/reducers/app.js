@@ -3,7 +3,11 @@ import Immutable from 'seamless-immutable';
 
 
 const initialState = Immutable({
-		editing: false,
+		editing: {
+            entityType: null,
+            id: null,
+            field: null
+        },
 	});
 
 export default function app(state = initialState, action) {
@@ -17,8 +21,8 @@ export default function app(state = initialState, action) {
         }
       );
 
-    case types.CANCEL_ENTITY_EDITING:
-    	return state.set('editing', false);
+    case types.STOP_ENTITY_EDITING:
+    	return state.set('editing', initialState.editing);
 
     case types.ADD_NEW_ENTITY:
     	return state.set('editing', {

@@ -7,46 +7,60 @@ import StringEditor  from './StringEditor';
 import ReferenceEditor  from './ReferenceEditor';
 
 
+
 class EntityItem extends Component {
 
+	// shouldComponentUpdate(nextProps) {
+	// 	const thisEditing = this.props.state.editing;
+	// 	const nextEditing = nextProps.state.editing;
+	// 	return thisEditing != nextEditing
+	// 		|| 
+	// }
+
 	isEditing(fieldName) {
-		const { item, entityType, editing } = this.props;
-		const { id } = item;
+		const { item, state, schema } = this.props;
+		const editing = state.app.editing;
 		const isFieldMatched = fieldName ? editing.field == fieldName : true;
-		return editing && isFieldMatched && editing.entityType == entityType && editing.id == id;
+		return editing && isFieldMatched && editing.entityType == schema.entityType && editing.id == item.id;
 	}
 
-	onStartEdit(fieldName) {
-		this.props.handlers.onStartEntityEditing(this.props.item.id, fieldName);
-	}
-
-	onRemoveEntity = () => {
-		this.props.handlers.onRemoveEntity(this.props.item.id);
+	onStartEditing = (event) => {
+		const { item, schema, actions } = this.props;
+		const fieldName = event.target.closest('td').dataset.fieldname;
+		if (fieldName && fieldName != 'id') {
+			actions.startEntityEditing(schema.entityType, item.id, fieldName);
+		}
 	}
 
 	onEditorUpdate = (value) => {
-		const fieldName = this.props.editing.field;
-		this.props.handlers.onChangeEntityValue(this.props.item.id, fieldName, value, this.props.item);
-		this.props.handlers.onCancelItemEditing();
+		const { item, state, schema, actions } = this.props;
+		actions.updateEntityField(schema, item.id, state.app.editing.field, value);
+		actions.stopEntityEditing();
 	}
 
 	onEditorCancel = () => {
-		this.props.handlers.onCancelItemEditing();
+		const { actions } = this.props;
+		actions.stopEntityEditing();
+	}
+
+	onRemoveEntity = () => {
+		const { item, schema, actions } = this.props;
+		actions.removeEntity(schema.entityType, item.id);
 	}
 
 	renderField(fieldName) {
-		const { item, schema, references, entityType } = this.props;
-		const { id } = item;
+		const { item, schema, state } = this.props;
 		const fieldDesc = schema.properties[fieldName];
 		if (fieldName == 'id') {
-			return <div>{id}</div>
+			return <div>{item.id}</div>
 		}
 		switch(fieldDesc.type) {
 			case 'string':
 				return (
 					<StringEditor
-						item={item}
 						fieldName={fieldName}
+						item={item}
+						state={state}
 						schema={schema}
 						isEditing={this.isEditing(fieldName)}
 						onEditorUpdate={this.onEditorUpdate}
@@ -57,11 +71,11 @@ class EntityItem extends Component {
 				if (fieldDesc.refersTo) {
 					return (
 						<ReferenceEditor
-							item={item}
 							fieldName={fieldName}
+							item={item}
+							state={state}
 							schema={schema}
 							isEditing={this.isEditing(fieldName)}
-							references={references[fieldDesc.refersTo]}
 							onEditorUpdate={this.onEditorUpdate}
 							onEditorCancel={this.onEditorCancel}
 						/>
@@ -73,17 +87,8 @@ class EntityItem extends Component {
 	renderFields() {
 		const fieldNames = Object.keys(this.props.schema.properties);
 		return [ 'id', ...fieldNames ].map(fieldName => {
-			const clickHandler = {};
-			if (fieldName != 'id') {
-				clickHandler.onClick = this.onStartEdit.bind(this, fieldName)
-			}
-			const dataAttr = { 'data-field-name': fieldName };
 			return (
-				<td
-					key={fieldName}
-					{ ...clickHandler }
-					{ ...dataAttr }
-				>
+				<td	key={fieldName} data-fieldname={fieldName}>
 					{this.renderField(fieldName)}
 				</td>
 			);
@@ -102,7 +107,7 @@ class EntityItem extends Component {
 
 	render() {
 		return (
-			<tr className={this.getRowClass()}>
+			<tr className={this.getRowClass()} onClick={this.onStartEditing}>
 				{this.renderFields()}
 				<td className="control-cell">
 					<Button bsStyle="danger" bsSize="xsmall" onClick={this.onRemoveEntity}>
@@ -117,14 +122,9 @@ class EntityItem extends Component {
 
 EntityItem.propTypes = {
   item: PropTypes.object.isRequired,
-  entityType: PropTypes.string.isRequired,
+  state: PropTypes.object.isRequired,
   schema: PropTypes.object.isRequired,
-  editing: PropTypes.oneOfType([
-  		PropTypes.object,
-  		PropTypes.bool,
-  	]).isRequired,
-  references: PropTypes.object,
-  handlers: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 export default EntityItem;

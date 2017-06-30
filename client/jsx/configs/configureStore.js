@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import entities from '../reducers/entities';
 import app from '../reducers/app';
-import rootSaga from '../sagas/sagas'
+import rootSaga from '../sagas/entitySagas'
 
 
 export default function configureStore() {

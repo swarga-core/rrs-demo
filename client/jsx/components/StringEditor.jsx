@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 
 class StringEditor extends Component {
@@ -18,7 +19,7 @@ class StringEditor extends Component {
 
 	shouldComponentUpdate(nextProps) {
 		return (
-				nextProps.item !== this.props.item
+				!_.isEqual(nextProps.item, this.props.item)
 				|| nextProps.isEditing !== this.props.isEditing
 		);
 	}
@@ -48,7 +49,7 @@ class StringEditor extends Component {
 					type="text"
 					className="form-control input-sm"
 					defaultValue={item[fieldName]}
-					ref={(editor) => this.editor = editor}
+					ref={editor => this.editor = editor}
 					onKeyDown={this.onEditorKeyDown}
 					onBlur={this.onBlur}
 				/>
@@ -61,10 +62,11 @@ class StringEditor extends Component {
 }
 
 StringEditor.propTypes = {
+  fieldName: PropTypes.string.isRequired,
   item: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired,
   schema: PropTypes.object.isRequired,
   isEditing: PropTypes.bool.isRequired,
-  fieldName: PropTypes.string.isRequired,
   onEditorUpdate: PropTypes.func.isRequired,
   onEditorCancel: PropTypes.func.isRequired,
 };

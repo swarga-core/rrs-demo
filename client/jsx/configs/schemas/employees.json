@@ -11,12 +11,13 @@
       "title": "Last Name",
       "type": "string"
     },
-    "departmentId": {
+    "depId": {
       "title": "Department",
       "type": "number",
       "refersTo": "departments",
-      "referredTitle": "name"
+      "referredTitles": ["name"]
     }
   },
-  "required": ["firstName", "lastName", "departmentId"]
+  "order": ["firstName", "lastName", "depId"],
+  "required": ["firstName", "lastName", "depId"]
 }

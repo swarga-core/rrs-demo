@@ -31,14 +31,6 @@ export default function app(state = initialState, action) {
       );
     }
 
-    case types.CHANGE_ENTITY_VALUE: {
-      const { entityType, id, fieldName, newValue } = action;
-      return state.setIn(
-        [entityType, id, fieldName],
-        newValue
-      );
-    }
-
     case types.ADD_NEW_ENTITY: {
       const { entityType } = action;
       return state.set(
@@ -56,7 +48,7 @@ export default function app(state = initialState, action) {
     }
 
     case types.REMOVE_NEW_ENTITY: {
-      const { entityType, id } = action;
+      const { entityType } = action;
       return state.set(
         entityType,
         state[entityType].without('new')

@@ -1,6 +1,21 @@
 import * as types from '../configs/ActionTypes';
 
 
+export function startEntityEditing(entityType, id, field) {
+  return {
+    type: types.START_ENTITY_EDITING,
+    entityType,
+    id,
+    field,
+  };
+}
+
+export function stopEntityEditing() {
+  return {
+    type: types.STOP_ENTITY_EDITING,
+  };
+}
+
 export function fetchEntities(entityType) {
   return {
     type: types.FETCH_ENTITIES,
@@ -16,14 +31,6 @@ export function entitiesFetchSucceeded(entityType, entities) {
   };
 }
 
-export function updateEntity(entityType, entity) {
-  return {
-    type: types.UPDATE_ENTITY,
-    entityType,
-    entity,
-  };
-}
-
 export function entityFetchSuccessed(entityType, entity, itWasNew) {
   return {
     type: types.ENTITY_FETCH_SUCCEEDED,
@@ -33,10 +40,10 @@ export function entityFetchSuccessed(entityType, entity, itWasNew) {
   };
 }
 
-export function changeEntityValue(entityType, id, fieldName, newValue) {
+export function updateEntityField(schema, id, fieldName, newValue) {
   return {
-    type: types.CHANGE_ENTITY_VALUE,
-    entityType,
+    type: types.UPDATE_ENTITY_FIELD,
+    schema,
     id,
     fieldName,
     newValue,
@@ -46,13 +53,6 @@ export function changeEntityValue(entityType, id, fieldName, newValue) {
 export function addNewEntity(entityType) {
   return {
     type: types.ADD_NEW_ENTITY,
-    entityType,
-  };
-}
-
-export function syncNewEntity(entityType) {
-  return {
-    type: types.SYNC_NEW_ENTITY,
     entityType,
   };
 }
