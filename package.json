@@ -1,6 +1,6 @@
 {
   "name": "rrs-demo",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,16 @@
     "dev-server": "webpack-dev-server --progress --colors --hot --content-base ./server/public --config ./webpack.config.js",
     "json-server": "node node_modules/.bin/json-server --watch ./server/db.json",
     "start-dev": "npm run json-server & npm run dev-server",
-    "start-prod": "node node_modules/.bin/json-server --watch ./server/db.json --static ./server/build/public --port:8080"
+    "start-prod": "node node_modules/.bin/json-server --watch ./server/db.json --static ./server/build/public --port 8080",
+    "test": "node node_modules/.bin/jest",
+    "retest": "node node_modules/.bin/jest -u"
   },
   "author": "Andrey Nitsenko",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-es2015": "^6.24.1",
@@ -24,9 +27,13 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "jest": "^20.0.4",
     "json-server": "^0.10.1",
     "jsx-loader": "^0.13.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "react-hot-loader": "^1.3.1",
+    "react-test-renderer": "^15.6.1",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
@@ -42,6 +49,7 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-select": "^1.0.0-rc.5",
     "redux": "^3.6.0",
     "redux-saga": "^0.15.3",
     "reselect": "^3.0.1",

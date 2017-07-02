@@ -14,6 +14,7 @@
     "depId": {
       "title": "Department",
       "type": "number",
+      "multiple": false,
       "refersTo": "departments",
       "referredTitles": ["name"]
     }

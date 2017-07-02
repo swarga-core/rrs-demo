@@ -8,13 +8,18 @@ module.exports = {
     main: './client/jsx/main.jsx',
     vendor: [
       'lodash',
+      'fetch-polyfill',
+      'element-closest',
+      'babel-polyfill',
       'react',
       'react-dom',
       'redux',
+      'redux-saga',
       'react-redux',
       'react-router-dom',
       'prop-types',
       'react-bootstrap',
+      'reselect',
       'seamless-immutable'
     ],
   },
@@ -33,7 +38,19 @@ module.exports = {
         loaders: ['react-hot-loader', 'babel-loader']
       }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader'})
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
+      }, {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+                loader: "css-loader"
+            }, {
+                loader: "less-loader"
+            }],})
       }, {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=public/build/fonts/[name].[ext]'

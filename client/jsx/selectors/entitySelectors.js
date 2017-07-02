@@ -92,3 +92,11 @@ export const referredEntitiesSelector = createSelector(
 export const entitySelector = (state, entityType, id) => (
 	state.entities[entityType][id]
 )
+
+/**
+ * Returns app editing object.
+ * @return     {object}
+ */
+export const editingSelector = (state) => (
+	state.app.editing
+)

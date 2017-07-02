@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
+
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 
 import StringEditor  from './StringEditor';
 import ReferenceEditor  from './ReferenceEditor';
+import { editingSelector } from '../selectors/entitySelectors';
 
 
 
 class EntityItem extends Component {
 
-	// shouldComponentUpdate(nextProps) {
-	// 	const thisEditing = this.props.state.editing;
-	// 	const nextEditing = nextProps.state.editing;
-	// 	return thisEditing != nextEditing
-	// 		|| 
-	// }
+	shouldComponentUpdate(nextProps) {
+		const { id } = this.props.item;
+		const thisEditing = editingSelector(this.props.state);
+		const nextEditing = editingSelector(nextProps.state);
+		return (thisEditing.id == id || nextEditing.id == id) || !(_.isEqual(this.props.item, nextProps.item));
+	}
 
 	isEditing(fieldName) {
 		const { item, state, schema } = this.props;
-		const editing = state.app.editing;
+		const editing = editingSelector(state);
 		const isFieldMatched = fieldName ? editing.field == fieldName : true;
 		return editing && isFieldMatched && editing.entityType == schema.entityType && editing.id == item.id;
 	}
@@ -34,7 +37,7 @@ class EntityItem extends Component {
 
 	onEditorUpdate = (value) => {
 		const { item, state, schema, actions } = this.props;
-		actions.updateEntityField(schema, item.id, state.app.editing.field, value);
+		actions.updateEntityField(schema, item.id, editingSelector(state).field, value);
 		actions.stopEntityEditing();
 	}
 
@@ -87,8 +90,9 @@ class EntityItem extends Component {
 	renderFields() {
 		const fieldNames = Object.keys(this.props.schema.properties);
 		return [ 'id', ...fieldNames ].map(fieldName => {
+			const isEditable = (fieldName != 'id' && !this.isEditing(fieldName)) ? 'editable' : '';
 			return (
-				<td	key={fieldName} data-fieldname={fieldName}>
+				<td	key={fieldName} data-fieldname={fieldName} className={isEditable}>
 					{this.renderField(fieldName)}
 				</td>
 			);

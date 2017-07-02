@@ -1,0 +1,86 @@
+#main {
+  padding: 20px 50px 50px 270px;
+
+  table {
+    margin-bottom: 0;
+    table-layout: fixed;
+  }
+
+  th.control-cell {
+    font-style: italic;
+    font-weight: normal;
+    width: 70px;
+  }
+
+  td {
+    line-height: 2.2em;
+
+    &.control-cell {
+      text-align: center;
+    }
+  }
+
+  [data-fieldname="id"] {
+    width: 70px;
+  }
+
+  .panel-footer {
+    text-align: center;
+  }
+
+  .panel-heading {
+    position: relative;
+  }
+
+  .add-new-item-btn {
+    width: 200px;
+  }
+
+  option.placeholder {
+    color: #aaa;
+  }
+
+  .entity-filter {
+    position: absolute;
+    top: 30%;
+    right: 14px;
+
+    button {
+      position: absolute;
+      top: 1px;
+      right: 0;
+      z-index: 100;
+      border: none;
+      background: none;
+      outline: none;
+    }
+  }
+
+  .filterable-mark {
+    font-size: 0.5em;
+    vertical-align: top;
+    margin-left: 3px;
+  }
+
+  .editable:hover {
+    cursor: pointer;
+  }
+
+  .Select-control {
+    font-size: 12px;
+    height: 30px;
+
+    .Select-value {
+      line-height: 30px;
+    }
+
+    .Select-input {
+      height: 30px;
+
+      & > input {
+        padding: 8px 0 8px;
+      }
+    }
+  }
+
+}

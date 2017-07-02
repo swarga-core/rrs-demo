@@ -3,7 +3,6 @@ import _ from 'lodash';
 
 export const api = {
 
-  // за неимением времени на аккуратную разводку по конфигам вбиваем прямой путь к апи-серверу
   fetchEntities(entityType) {
     return fetch('http://localhost:3000/' + entityType + '/')
       .then((response) => {

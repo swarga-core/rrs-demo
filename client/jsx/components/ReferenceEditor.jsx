@@ -5,8 +5,6 @@ import _ from 'lodash';
 import { referredEntitiesSelector } from '../selectors/entitySelectors';
 
 
-
-
 class ReferenceEditor extends Component {
 
 	componentDidMount() {

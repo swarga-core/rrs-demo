@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"isE",
+				"isEditable"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"is",
+				"isEqual"
+			],
+			[
+				"en",
+				"entityActions"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"new",
+				"newState"
+			],
+			[
+				"all",
+				"allEntities"
+			],
+			[
+				"ent",
+				"entityType"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"req",
+				"requiredField"
+			],
+			[
+				"e",
+				"entityActions"
+			],
+			[
 				"s",
 				"schema"
 			],
@@ -32,16 +80,8 @@
 				"dispatch"
 			],
 			[
-				"new",
-				"newValue"
-			],
-			[
 				"ref",
 				"references"
-			],
-			[
-				"is",
-				"isEditing"
 			],
 			[
 				"fie",
@@ -204,10 +244,6 @@
 				"content"
 			],
 			[
-				"req",
-				"request"
-			],
-			[
 				"pr",
 				"protected"
 			],
@@ -244,7 +280,43 @@
 			"file": "client/jsx/containers/ListContainer.jsx",
 			"settings":
 			{
-				"buffer_size": 3414,
+				"buffer_size": 813,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/components/FilterBar.jsx",
+			"settings":
+			{
+				"buffer_size": 1684,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/styles/app.css",
+			"settings":
+			{
+				"buffer_size": 1461,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/reducers/app.js",
+			"settings":
+			{
+				"buffer_size": 1172,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/actions/entityActions.js",
+			"settings":
+			{
+				"buffer_size": 1629,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -253,7 +325,16 @@
 			"file": "client/jsx/components/EntityList.jsx",
 			"settings":
 			{
-				"buffer_size": 2238,
+				"buffer_size": 2544,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/jsx/selectors/entitySelectors.js",
+			"settings":
+			{
+				"buffer_size": 2765,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -262,7 +343,7 @@
 			"file": "client/jsx/components/EntityItem.jsx",
 			"settings":
 			{
-				"buffer_size": 3473,
+				"buffer_size": 3570,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -280,43 +361,16 @@
 			"file": "client/jsx/components/ReferenceEditor.jsx",
 			"settings":
 			{
-				"buffer_size": 2511,
+				"buffer_size": 1880,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "client/jsx/configs/schemas/employees.json",
+			"file": "client/jsx/sagas/entitySagas.js",
 			"settings":
 			{
-				"buffer_size": 456,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/jsx/reducers/app.js",
-			"settings":
-			{
-				"buffer_size": 806,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/jsx/actions/appActions.js",
-			"settings":
-			{
-				"buffer_size": 51,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/jsx/actions/entityActions.js",
-			"settings":
-			{
-				"buffer_size": 1543,
+				"buffer_size": 2202,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -368,19 +422,36 @@
 		"/home/swarga/Projects/rrs/client/jsx/containers",
 		"/home/swarga/Projects/rrs/client/jsx/reducers",
 		"/home/swarga/Projects/rrs/client/jsx/sagas",
-		"/home/swarga/Projects/rrs/client/jsx/utls",
+		"/home/swarga/Projects/rrs/client/jsx/selectors",
+		"/home/swarga/Projects/rrs/client/styles",
 		"/home/swarga/Projects/rrs/server",
 		"/home/swarga/Projects/rrs/server/public"
 	],
 	"file_history":
 	[
+		"/home/swarga/Projects/rrs/client/jsx/configs/schemas/employees.json",
+		"/home/swarga/Projects/rrs/client/jsx/configs/schemas/departments.json",
+		"/home/swarga/Projects/rrs/client/jsx/configs/ActionTypes.jsx",
+		"/home/swarga/Projects/rrs/client/jsx/actions/entityActions.js",
+		"/home/swarga/Projects/rrs/client/jsx/actions/filterActions.js",
+		"/home/swarga/Projects/rrs/client/jsx/reducers/entities.js",
+		"/home/swarga/Projects/rrs/client/jsx/components/ReferenceEditor.jsx",
+		"/home/swarga/Projects/rrs/client/jsx/configs/configureStore.js",
+		"/home/swarga/Projects/rrs/server/db.json",
+		"/home/swarga/Projects/rrs/README",
+		"/home/swarga/Projects/rrs/client/jsx/components/StringEditor.jsx",
+		"/home/swarga/Projects/rrs/webpack.config.js",
+		"/home/swarga/Projects/rrs/client/jsx/sagas/sagas.js",
+		"/home/swarga/Projects/rrs/client/jsx/reducers/app.js",
+		"/home/swarga/Projects/rrs/client/jsx/main.jsx",
+		"/home/swarga/Projects/rrs/client/styles/app.css",
+		"/home/swarga/Projects/rrs/client/jsx/actions/appActions.js",
 		"/home/swarga/Projects/rrs/client/jsx/components/EntityItem.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/utls/NavLink.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/components/Home.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/containers/ListContainerWithSchema.jsx",
 		"/home/swarga/Projects/rrs/server/public/index.html",
 		"/home/swarga/Projects/rrs/package.json",
-		"/home/swarga/Projects/rrs/client/jsx/components/StringEditor.jsx",
 		"/home/swarga/Projects/rrs/client/jsx/components/NavLink.jsx",
 		"/home/swarga/Projects/rrs/index.html",
 		"/home/swarga/Projects/ariya/server/public/list.json",
@@ -470,13 +541,14 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
 		"height": 158.0,
 		"where_history":
 		[
+			"/home/swarga/Projects/rrs/,-/home/swarga/Projects/rrs/node_modules/*",
 			"/home/swarga/Projects/rrs/,-/home/swarga/Projects/rrs/node_modules/",
 			"/home/swarga/Projects/ariya/,-/node_modules/*",
 			"/home/swarga/Projects/ariya/",
@@ -490,6 +562,76 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"editing",
+			"schema",
+			"editing",
+			"shouldUpdate",
+			"editing",
+			"filterBy",
+			"filterQuery",
+			"FormGroup",
+			"form",
+			"search",
+			"SearchBar",
+			"schemafilterBySelector",
+			"filterBy",
+			"searchBy",
+			"SearchBy",
+			"searchBy",
+			"filterQuery",
+			"filter",
+			"allEntities",
+			"filter",
+			"onResetFilter",
+			"entityType",
+			"onSetEntityFilter",
+			"RESET_FILTER",
+			"SET_FILTER",
+			"REMOVE_ENTITY",
+			"SET_FILTER",
+			"FormControl",
+			"EntityItem",
+			"Button",
+			"InputGroup",
+			"FormGroup",
+			"Table",
+			"departmentId",
+			"const",
+			"departmentId",
+			"SYNC_NEW_ENTITY",
+			"requiredField",
+			"order",
+			"entityType",
+			"updateEntityField",
+			"required",
+			"onAddNewItem",
+			"updateEntity",
+			"take",
+			"UPDATE_ENTITY_VALUE",
+			"updateEntityField",
+			"export function* updateEntityField(action) {\n",
+			"updateEntityValue",
+			"select",
+			"key-entity",
+			"value",
+			"entityItemSelector",
+			"object",
+			"referredEntitiesSelector",
+			"entityItemSelector",
+			"entityItemsSelector",
+			"CANCEL_ENTITY_EDITING",
+			"cancelEntityEditing",
+			"references",
+			"string",
+			"getEntityItems",
+			"cancelItemEditing",
+			"onCancelEntityEditing",
+			"UPDATE_ENTITY_VALUE",
+			"CHANGE_ENTITY_VALUE",
+			"changeEntityValue",
+			"onEditorUpdate",
+			"onStartEntityEditing",
+			"onStartEdit",
 			"getEntityItem",
 			"key",
 			"getRefEntityTitles",
@@ -547,77 +689,7 @@
 			"onChangeEntityValue",
 			"changeEntityValue",
 			"UPDATE_ENTITY_FIELD",
-			"entitY",
-			"CHANGE_ENTITY_VALUE",
-			"sagaMiddleware",
-			"ENTITIES_FETCH_SUCCEEDED",
-			"response",
-			"REMOVE_ENTITY",
-			"items",
-			"items: PropTypes.object.isRequired,",
-			"dist",
-			"departmentId",
-			"employees",
-			"lastName",
-			"firstName",
-			"id",
-			"name",
-			"id",
-			"'",
-			"sdfsdfsdf",
-			"name",
-			"entityType",
-			"item",
-			"items",
-			"properties",
-			"action",
-			"entityType",
-			"REMOVE_ENTITY",
-			"index",
-			"onRemoveItem",
-			"onItemFieldChange",
-			"onEditExistedItem",
-			"cancelEntityEditing",
-			"onCancelItemEditing",
-			"keys",
-			"onEditNewItem",
-			"value",
-			"sourceValue",
-			"value",
-			"sourceValue",
-			"string",
-			"fieldDesc",
-			"StringEditor",
-			"onRemoveItem",
-			"onUpdateItem",
-			"onItemFieldEditClick",
-			"isEditing",
-			"onBlur",
-			"input",
-			"Glyphicon",
-			"select",
-			"input",
-			"EntityItem",
-			"isCreating",
-			"isEditing",
-			"fields",
-			"class",
-			"for",
-			"departments",
-			"DepartmentListContainer",
-			"firstName",
-			"'departments'",
-			"departments",
-			"DepartmentListContainer",
-			"name",
-			"onEditItem",
-			"renderNew",
-			"onItemFieldEditClick",
-			"onItemRowClick",
-			"addNew",
-			"actions",
-			"entityData",
-			"NEW_ENTITY"
+			"entitY"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -625,6 +697,14 @@
 		"regex": false,
 		"replace_history":
 		[
+			"FilterBar",
+			"UPDATE_ENTITY_FIELD",
+			"updateEntityField",
+			"STOP_ENTITY_EDITING",
+			"stopEntityEditing",
+			"cancelEntityEditing",
+			"UPDATE_ENTITY_VALUE",
+			"updateEntityValue",
 			"onRemoveEntity",
 			"onChangeEntityValue",
 			"onStartEntityEditing",
@@ -642,7 +722,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -658,13 +738,135 @@
 						"selection":
 						[
 							[
-								1529,
-								1529
+								1741,
+								1741
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/jsx/containers/ListContainer.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								295,
+								295
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/jsx/components/FilterBar.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								677,
+								677
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/styles/app.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1460,
+								1460
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1035.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/jsx/reducers/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1125,
+								1125
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -676,53 +878,56 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "client/jsx/containers/ListContainer.jsx",
+					"buffer": 5,
+					"file": "client/jsx/actions/entityActions.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3414,
+						"buffer_size": 1629,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1188,
-								1188
+								1290,
+								1290
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 6,
 					"file": "client/jsx/components/EntityList.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2238,
+						"buffer_size": 2544,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								965,
-								965
+								357,
+								357
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -730,40 +935,71 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "client/jsx/components/EntityItem.jsx",
+					"buffer": 7,
+					"file": "client/jsx/selectors/entitySelectors.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3473,
+						"buffer_size": 2765,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2240,
-								2240
+								2729,
+								2729
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1170.0,
+						"translation.y": 1125.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
+					"file": "client/jsx/components/EntityItem.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3570,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2743,
+								2743
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "client/jsx/components/StringEditor.jsx",
 					"semi_transient": false,
 					"settings":
@@ -775,8 +1011,8 @@
 						"selection":
 						[
 							[
-								1143,
-								1143
+								1080,
+								1080
 							]
 						],
 						"settings":
@@ -785,154 +1021,67 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "client/jsx/components/ReferenceEditor.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2511,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								428,
-								428
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "client/jsx/configs/schemas/employees.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 456,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								376,
-								376
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "client/jsx/reducers/app.js",
+					"buffer": 10,
+					"file": "client/jsx/components/ReferenceEditor.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 806,
+						"buffer_size": 1880,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								293,
-								293
+								1477,
+								1477
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "client/jsx/actions/appActions.js",
+					"buffer": 11,
+					"file": "client/jsx/sagas/entitySagas.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 51,
+						"buffer_size": 2202,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								1301,
+								1301
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "client/jsx/actions/entityActions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1543,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1116,
-								1116
-							]
-						],
-						"settings":
-						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,

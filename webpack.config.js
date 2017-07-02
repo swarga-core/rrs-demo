@@ -26,6 +26,9 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
       }, {
+        test: /\.less$/,
+        loaders: ['style-loader', 'css-loader', 'less-loader']
+      }, {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=public/fonts/[name].[ext]'
       }

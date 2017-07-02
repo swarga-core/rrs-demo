@@ -5,7 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import '../styles/app.css';
+import '../styles/app.less';
+import 'react-select/dist/react-select.css';
 import App from './containers/App';
 import configureStore from './configs/configureStore';
 

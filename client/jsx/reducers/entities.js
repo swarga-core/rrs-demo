@@ -6,6 +6,7 @@ import _ from 'lodash';
 const initialState = Immutable({
     departments: {},
     employees: {},
+    projects: {},
   });
 
 export default function app(state = initialState, action) {
