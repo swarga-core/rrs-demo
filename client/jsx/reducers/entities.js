@@ -1,16 +1,15 @@
 import * as types from '../configs/ActionTypes';
 import Immutable from 'seamless-immutable';
-import _ from 'lodash';
 
 
 const initialState = Immutable({
-    departments: {},
-    employees: {},
-    projects: {},
-  });
+  departments: {},
+  employees: {},
+  projects: {},
+});
 
 export default function app(state = initialState, action) {
-	switch (action.type) {
+  switch (action.type) {
 
     case types.ENTITIES_FETCH_SUCCEEDED: {
       const { entityType, entities } = action;
@@ -57,6 +56,6 @@ export default function app(state = initialState, action) {
     }
 
     default:
-    	return state;
+      return state;
   }
 }

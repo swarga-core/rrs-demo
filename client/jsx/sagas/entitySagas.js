@@ -1,16 +1,17 @@
 import { delay } from 'redux-saga';
 import { call, put, takeEvery, all, fork, select } from 'redux-saga/effects';
-import _ from 'lodash';
+import _isEmpty from 'lodash/isEmpty';
+import _find from 'lodash/find';
 
 import * as types from '../configs/ActionTypes';
 import * as entityActions from '../actions/entityActions';
 
 import { entitySelector } from '../selectors/entitySelectors';
-import { api } from './services'
+import { api } from './services';
 
 
 export function* fetchEntities(action) {
-	const { entityType } = action;
+  const { entityType } = action;
   const entities = yield call(api.fetchEntities, entityType);
   yield put(entityActions.entitiesFetchSucceeded(entityType, entities));
 }
@@ -25,7 +26,7 @@ export function* updateEntityField(action) {
   } 
   yield put(entityActions.entityFetchSuccessed(entityType, entity, false));
   if (id == 'new') {
-    const requiredField = _.find(schema.required, (fieldName) => ( _.isEmpty(entity[fieldName]) ));
+    const requiredField = _find(schema.required, (fieldName) => ( _isEmpty(entity[fieldName]) ));
     if (requiredField) {
       yield delay(1);
       yield put(entityActions.startEntityEditing(entityType, id, requiredField));
@@ -38,13 +39,13 @@ export function* updateEntityField(action) {
 }
 
 export function* removeEntity(action) {
-	const { entityType, id } = action;
+  const { entityType, id } = action;
   if (id == 'new') {
     yield put(entityActions.removeNewEntity(entityType));
   } else {
     yield call(api.removeEntity, entityType, id);
   }
-	yield put(entityActions.removeEntitySuccessed(entityType, id));
+  yield put(entityActions.removeEntitySuccessed(entityType, id));
 }
 
 
@@ -66,5 +67,5 @@ export default function* rootSaga() {
     fork(watchFetchEntities),
     fork(watchUpdateEntityField),
     fork(watchRemoveEntity),
-  ])
+  ]);
 }

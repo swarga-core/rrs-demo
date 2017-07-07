@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js",
-    "dev-server": "webpack-dev-server --progress --colors --hot --content-base ./server/public --config ./webpack.config.js",
+    "dev-server": "webpack-dev-server --progress --colors --hot --watch-poll --content-base ./server/public --config ./webpack.config.js",
     "json-server": "node node_modules/.bin/json-server --watch ./server/db.json",
-    "start-dev": "npm run json-server & npm run dev-server",
-    "start-prod": "node node_modules/.bin/json-server --watch ./server/db.json --static ./server/build/public --port 8080",
+    "start": "npm run json-server & npm run dev-server",
     "test": "node node_modules/.bin/jest",
     "retest": "node node_modules/.bin/jest -u"
   },
@@ -25,6 +24,10 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.1.1",
+    "eslint-plugin-lodash": "^2.4.3",
+    "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "jest": "^20.0.4",

@@ -13,8 +13,11 @@ module.exports = {
     publicPath: 'http://localhost:8080/',
     filename: 'js/[name].js',
   },
+  devServer: {
+    hot: true
+  },
   resolve: {
-    extensions: [".js", ".jsx", ".json"]
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     loaders: [

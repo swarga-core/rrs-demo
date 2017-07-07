@@ -7,11 +7,11 @@ import rootSaga from '../sagas/entitySagas'
 
 
 export default function configureStore() {
-	const sagaMiddleware = createSagaMiddleware();
-	const rootReducer = combineReducers({
-	  entities,
-	  app,
-	});
+  const sagaMiddleware = createSagaMiddleware();
+  const rootReducer = combineReducers({
+    entities,
+    app,
+  });
 
   const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
   sagaMiddleware.run(rootSaga);

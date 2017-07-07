@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import _filter from 'lodash/filter';
+import _find from 'lodash/find';
+import _transform from 'lodash/transform';
 
 
 /**
@@ -7,25 +9,25 @@ import _ from 'lodash';
  * @return     {object}
  */
 export const fullEntityListSelector = (state, props) => {
-	const { entityType, filterBy } = props.schema;
-	return state.entities[entityType];
-}
+  const { entityType } = props.schema;
+  return state.entities[entityType];
+};
 
 /**
  * Returns current filter query string for entity of a type given in props.schema.entityType.
  * @return     {string}
  */
 export const entityFilterQuerySelector = (state, props) => (
-	state.app.filters[props.schema.entityType]
-)
+  state.app.filters[props.schema.entityType]
+);
 
 /**
  * Returns a list of entity field names witch can be used for filtration.
  * @return     {array}
  */
 export const schemaFilterBySelector = (state, props) => (
-	props.schema.filterBy
-)
+  props.schema.filterBy
+);
 
 /**
  * Returns 'key-entity' list of entities of type given in props.schema.entityType.
@@ -34,30 +36,30 @@ export const schemaFilterBySelector = (state, props) => (
  * @return     {object}
  */
 export const entityListSelector = createSelector(
-	fullEntityListSelector,
-	entityFilterQuerySelector,
-	schemaFilterBySelector,
-	(allEntities, filterQuery, filterBy) => {
-		if (!filterQuery) {
-			return allEntities;
-		}
-		return _.filter(allEntities, (entity) => (
-			_.find(filterBy, (searchFieldName) => (
-				~entity[searchFieldName].indexOf(filterQuery)
-			))
-		));
-	}
-)
+  fullEntityListSelector,
+  entityFilterQuerySelector,
+  schemaFilterBySelector,
+  (allEntities, filterQuery, filterBy) => {
+    if (!filterQuery) {
+      return allEntities;
+    }
+    return _filter(allEntities, (entity) => (
+      _find(filterBy, (searchFieldName) => (
+        ~entity[searchFieldName].indexOf(filterQuery)
+      ))
+    ));
+  }
+);
 
 /**
  * Returns 'key-entity' list of all entities of type given in props.schema for related fields.
  * @return     {object}
  */
 export const refEntityListSelector = (state, props) => {
-	const { schema, fieldName } = props;
-	const refEntityType = schema.properties[fieldName].refersTo;
-	return state.entities[refEntityType];
-}
+  const { schema, fieldName } = props;
+  const refEntityType = schema.properties[fieldName].refersTo;
+  return state.entities[refEntityType];
+};
 
 /**
  * Returns array of title components for entity of type given in props.schema.
@@ -65,9 +67,9 @@ export const refEntityListSelector = (state, props) => {
  * @return     {array}
  */
 export const refEntityTitlesSelector = (state, props) => {
-	const { schema, fieldName } = props;
-	return schema.properties[fieldName].referredTitles;
-}
+  const { schema, fieldName } = props;
+  return schema.properties[fieldName].referredTitles;
+};
 
 /**
  * Returns 'key-title' list of all entities of type given in props.schema for related fields.
@@ -76,27 +78,27 @@ export const refEntityTitlesSelector = (state, props) => {
  * @return     {object}
  */
 export const referredEntitiesSelector = createSelector(
-	refEntityListSelector,
-	refEntityTitlesSelector,
-	(entities, titles) => (
-		_.transform(entities, (refs, entity, id) => {
-			refs[id] = titles.map(title => (entity[title])).join(' ');
-		})
-	)
-)
+  refEntityListSelector,
+  refEntityTitlesSelector,
+  (entities, titles) => (
+    _transform(entities, (refs, entity, id) => {
+      refs[id] = titles.map(title => (entity[title])).join(' ');
+    })
+  )
+);
 
 /**
  * Returns entity by given entityType and id.
  * @return     {object}
  */
 export const entitySelector = (state, entityType, id) => (
-	state.entities[entityType][id]
-)
+  state.entities[entityType][id]
+);
 
 /**
  * Returns app editing object.
  * @return     {object}
  */
 export const editingSelector = (state) => (
-	state.app.editing
-)
+  state.app.editing
+);

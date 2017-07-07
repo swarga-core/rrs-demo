@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _keyBy from 'lodash/keyBy';
 
 
 export const api = {
@@ -9,7 +9,7 @@ export const api = {
         return response.json();
       })
       .then((json) => {
-        return _.keyBy(json, (entity) => {
+        return _keyBy(json, (entity) => {
           return entity.id;
         });
       })
@@ -20,13 +20,13 @@ export const api = {
 
   updateEntity(entityType, entity) {
     return fetch('http://localhost:3000/' + entityType + '/' + entity.id, {
-        method: 'put',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(entity)
-      })
+      method: 'put',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(entity)
+    })
       .then((response) => {
         return response.json();
       })
@@ -40,10 +40,10 @@ export const api = {
 
   removeEntity(entityType, id) {
     return fetch('http://localhost:3000/' + entityType + '/' + id, {
-        method: 'delete'
-      })
+      method: 'delete'
+    })
       .then((response) => {
-        return response.ok
+        return response.ok;
       })
       .catch(() => {
         return false;
@@ -52,13 +52,13 @@ export const api = {
 
   syncNewEntity(entityType, entity) {
     return fetch('http://localhost:3000/' + entityType, {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(entity)
-      })
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(entity)
+    })
       .then((response) => {
         return response.json();
       })
@@ -70,4 +70,4 @@ export const api = {
       });
   },
   
-}
+};
