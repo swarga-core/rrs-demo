@@ -5,15 +5,18 @@
   "properties": {
     "firstName": {
       "title": "First Name",
-      "type": "string"
+      "type": "string",
+      "sortable": true
     },
     "lastName": {
       "title": "Last Name",
-      "type": "string"
+      "type": "string",
+      "sortable": true
     },
     "depId": {
       "title": "Department",
       "type": "number",
+      "sortable": false,
       "multiple": false,
       "refersTo": "departments",
       "referredTitles": ["name"]

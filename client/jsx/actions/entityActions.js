@@ -94,3 +94,11 @@ export function resetEntityFilter(schema) {
     schema,
   };
 }
+
+export function sortEntityList(schema, fieldName) {
+  return {
+    type: types.SORT_ENTITY_LIST,
+    schema,
+    fieldName,
+  };
+}

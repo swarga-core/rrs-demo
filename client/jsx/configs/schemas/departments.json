@@ -5,7 +5,8 @@
   "properties": {
     "name": {
       "title": "Name",
-      "type": "string"
+      "type": "string",
+      "sortable": true
     }
   },
   "order": ["name"],

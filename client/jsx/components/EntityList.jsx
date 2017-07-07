@@ -19,9 +19,10 @@ class EntityList extends Component {
     return Object.keys(properties).map(fieldName => {
       const fieldDesc = properties[fieldName];
       const isFilerable = filterBy.includes(fieldName);
+      const title = fieldDesc.sortable ? <a href='#' data-key={fieldName} onClick={this.onSortClick}>{fieldDesc.title}</a> : fieldDesc.title;
       return (
         <th key={fieldName}>
-          {fieldDesc.title}
+          {title}
           {isFilerable ? <Glyphicon glyph="search" className="filterable-mark"/> : ''}
         </th>
       );
@@ -55,6 +56,13 @@ class EntityList extends Component {
         Add new
       </Button>
     );
+  }
+
+  onSortClick = (event) => {
+    const { schema, actions } = this.props;
+    event.preventDefault();
+    const fieldName = event.currentTarget.dataset.key;
+    actions.sortEntityList(schema, fieldName);
   }
 
   onAddNewEntity = () => {
