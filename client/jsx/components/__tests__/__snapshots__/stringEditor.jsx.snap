@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<String Editor /> in edit mode has matched snapshot 1`] = `
+<input
+  className="form-control input-sm"
+  defaultValue="Test Department"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  type="text"
+/>
+`;
+
+exports[`<String Editor /> in text mode has matched snapshot 1`] = `
+<div>
+  Test Department
+</div>
+`;
