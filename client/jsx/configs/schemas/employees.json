@@ -6,17 +6,20 @@
     "firstName": {
       "title": "First Name",
       "type": "string",
+      "filtrable": true,
       "sortable": true
     },
     "lastName": {
       "title": "Last Name",
       "type": "string",
+      "filtrable": true,
       "sortable": true
     },
     "depId": {
       "title": "Department",
       "type": "number",
-      "sortable": false,
+      "sortable": true,
+      "filtrable": false,
       "multiple": false,
       "refersTo": "departments",
       "referredTitles": ["name"]

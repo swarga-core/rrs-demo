@@ -1,3 +1,5 @@
+@text-color: #333;
+
 #main {
   padding: 20px 50px 50px 270px;
 
@@ -6,10 +8,49 @@
     table-layout: fixed;
   }
 
-  th.control-cell {
-    font-style: italic;
-    font-weight: normal;
-    width: 70px;
+  th {
+    &[data-field="id"] {
+      width: 70px;
+    }
+
+    &.control-cell {
+      font-style: italic;
+      font-weight: normal;
+      width: 70px;
+    }
+
+    .filterable:after {
+      content: "\e003";
+      position: relative;
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.5em;
+      vertical-align: top;
+      margin-left: 3px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sortable:before {
+      position: relative;
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1em;
+      vertical-align: bottom;
+      margin-right: 3px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sort-asc:before {
+      content: "\e155";
+      color: @text-color;
+    }
+    .sort-desc:before {
+      content: "\e156";
+      color: @text-color;
+    }
   }
 
   td {
@@ -18,10 +59,6 @@
     &.control-cell {
       text-align: center;
     }
-  }
-
-  [data-fieldname="id"] {
-    width: 70px;
   }
 
   .panel-footer {

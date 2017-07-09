@@ -32,7 +32,7 @@ export function* updateEntityField(action) {
       yield put(entityActions.startEntityEditing(entityType, id, requiredField));
     } else {
       entity = yield call(api.syncNewEntity, entityType, entity.without('id'));
-      yield put(entityActions.removeNewEntity(entityType));
+      yield put(entityActions.removeEntitySuccessed(entityType, id));
       yield put(entityActions.entityFetchSuccessed(entityType, entity, true));
     }
   }
@@ -40,11 +40,9 @@ export function* updateEntityField(action) {
 
 export function* removeEntity(action) {
   const { entityType, id } = action;
-  if (id == 'new') {
-    yield put(entityActions.removeNewEntity(entityType));
-  } else {
+  if (id != 'new') {
     yield call(api.removeEntity, entityType, id);
-  }
+  } 
   yield put(entityActions.removeEntitySuccessed(entityType, id));
 }
 

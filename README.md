@@ -13,12 +13,13 @@ Each of them is responsible for its level of responsibility and is conceptually 
 ### Installation
 ```sh
 $ git clone https://github.com/swarga-core/rrs-demo.git
+$ cd rrs-demo
 $ npm install
 ```
 
 ### Usage
 ```sh
-$ npm run start-dev
+$ npm start
 ```
 
 The application will be available at [http://localhost:8080]

@@ -2,6 +2,9 @@ import { createSelector } from 'reselect';
 import _filter from 'lodash/filter';
 import _find from 'lodash/find';
 import _transform from 'lodash/transform';
+import _values from 'lodash/values';
+import _gt from 'lodash/gt';
+import _lt from 'lodash/lt';
 
 
 /**
@@ -18,36 +21,60 @@ export const fullEntityListSelector = (state, props) => {
  * @return     {string}
  */
 export const entityFilterQuerySelector = (state, props) => (
-  state.app.filters[props.schema.entityType]
+  state.app.lists.filters[props.schema.entityType]
 );
 
 /**
- * Returns a list of entity field names witch can be used for filtration.
- * @return     {array}
+ * Returns an entity schema.
+ * @return     {object}
  */
-export const schemaFilterBySelector = (state, props) => (
-  props.schema.filterBy
+export const schemaSelector = (state, props) => (
+  props.schema
 );
 
 /**
- * Returns 'key-entity' list of entities of type given in props.schema.entityType.
+ * Returns sorting options.
+ * @return     {object}
+ */
+export const listSortingSelector = (state, props) => (
+  state.app.lists.sorting[props.schema.entityType]
+);
+
+/**
+ * Returns sorted list of entities of type given in props.schema.entityType.
  * Checks if a filter of the specified type exists. If so, it returns a filtered list, otherwise returns all.
  * Uses Reselect memoization.
- * @return     {object}
+ * @return     {array}
  */
 export const entityListSelector = createSelector(
   fullEntityListSelector,
   entityFilterQuerySelector,
-  schemaFilterBySelector,
-  (allEntities, filterQuery, filterBy) => {
-    if (!filterQuery) {
-      return allEntities;
+  schemaSelector,
+  listSortingSelector,
+  (allEntities, filterQuery, schema, sorting) => {
+    const filterBy = schema.filterBy;
+    const entityMap = !filterQuery ? 
+      allEntities :
+      _filter(allEntities, (entity) => (
+        _find(filterBy, (searchFieldName) => (
+          ~entity[searchFieldName].indexOf(filterQuery)
+        ))
+      ));
+    let entities = _values(entityMap);
+    if (sorting && sorting.fieldName) {
+      const { fieldName } = sorting;
+      const compare = sorting.order == 'asc' ? _gt : _lt;
+      if (fieldName == 'id') {
+        entities = entities.sort((e1, e2) => (compare(e1.id, e2.id) ? 1 : -1));
+      } else if (schema.properties[fieldName].type == 'string') {
+        entities = entities.sort((e1, e2) => (
+          compare(e1[fieldName].toLowerCase(), e2[fieldName].toLowerCase()) ? 1 : -1
+        ));
+      } else {
+        entities = entities.sort((e1, e2) => (compare(e1[fieldName], e2[fieldName]) ? 1 : -1));
+      }
     }
-    return _filter(allEntities, (entity) => (
-      _find(filterBy, (searchFieldName) => (
-        ~entity[searchFieldName].indexOf(filterQuery)
-      ))
-    ));
+    return entities;
   }
 );
 
@@ -100,5 +127,5 @@ export const entitySelector = (state, entityType, id) => (
  * @return     {object}
  */
 export const editingSelector = (state) => (
-  state.app.editing
+  state.app.lists.editing
 );

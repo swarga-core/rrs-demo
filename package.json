@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "classnames": "^2.2.5",
     "element-closest": "^2.0.2",
     "fetch-polyfill": "^0.8.2",
     "lodash": "^4.17.4",

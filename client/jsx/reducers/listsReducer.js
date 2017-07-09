@@ -1,12 +1,23 @@
 import * as types from '../configs/ActionTypes';
 import Immutable from 'seamless-immutable';
+import * as schemas from '../configs/schemas/index';
 
 
-const initialState = Immutable({
-  editing: {},
-  filters: {},
-  sorting: {}
-});
+const initListsStore = () => {
+  const initState = {
+    editing: {},
+    filters: {},
+    sorting: {},
+  };
+  Object.keys(schemas).reduce((state, entityType) => {
+    state[entityType] = {
+      fieldName: 'id',
+      order: 'asc'
+    };
+    return state;
+  }, initState.sorting);
+  return Immutable(initState);
+};
 
 const initEditingState = Immutable({
   entityType: null,
@@ -64,7 +75,7 @@ function sortingReducer( state = {}, action ) {
   switch (action.type) {
 
     case types.SORT_ENTITY_LIST: {
-      const { schema, fieldName } = action;
+      const { schema, fieldName = 'id' } = action;
       let order = state[schema.entityType] ? state[schema.entityType].order : null;
       order = (order == 'desc') ? 'asc' : 'desc';
       return state.merge({ [schema.entityType]: {
@@ -78,9 +89,10 @@ function sortingReducer( state = {}, action ) {
   }
 }
 
-export default function app(state = initialState, action) {
-  let newState = state.set('editing', editingReducer(state.editing, action));
-  newState = newState.set('filters', filteringReducer(state.filters, action));
-  newState = newState.set('sorting', sortingReducer(state.sorting, action));
-  return newState;
+export default function listsReducer(state = initListsStore(), action) {
+  return state.merge({
+    editing: editingReducer(state.editing, action),
+    filters: filteringReducer(state.filters, action),
+    sorting: sortingReducer(state.sorting, action)
+  });
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Provider, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchEntities } from '../actions/entityActions';
@@ -8,7 +8,6 @@ import { fetchEntities } from '../actions/entityActions';
 import Grid  from 'react-bootstrap/lib/Grid';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem  from 'react-bootstrap/lib/NavItem';
 
 import departmentSchema from '../configs/schemas/departments';
 import employeeSchema from '../configs/schemas/employees';

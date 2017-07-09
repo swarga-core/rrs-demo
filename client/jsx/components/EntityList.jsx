@@ -1,41 +1,49 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _has from 'lodash/has';
+import _find from 'lodash/find';
 
 import Table  from 'react-bootstrap/lib/Table';
 import Button  from 'react-bootstrap/lib/Button';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
+import EntityListFieldHeader from '../components/EntityListFieldHeader';
 import EntityItem from '../components/EntityItem';
 import FilterBar from '../components/FilterBar';
-import { entityListSelector } from '../selectors/entitySelectors';
+import { entityListSelector, listSortingSelector } from '../selectors/entitySelectors';
 
 
 
 class EntityList extends Component {
 
   renderHeader() {
-    const { properties, filterBy } = this.props.schema;
-    return Object.keys(properties).map(fieldName => {
-      const fieldDesc = properties[fieldName];
+    const { state, schema } = this.props;
+    const { properties, filterBy } = schema;
+    const sorting = listSortingSelector(state, this.props);
+    const fields = [ 'id', ...(Object.keys(properties)) ];
+    return fields.map(fieldName => {
+      const fieldDesc = fieldName != 'id' ?
+        properties[fieldName] :
+        {
+          sortable: true,
+          title: 'ID'
+        };
       const isFilerable = filterBy.includes(fieldName);
-      const title = fieldDesc.sortable ? <a href='#' data-key={fieldName} onClick={this.onSortClick}>{fieldDesc.title}</a> : fieldDesc.title;
-      return (
-        <th key={fieldName}>
-          {title}
-          {isFilerable ? <Glyphicon glyph="search" className="filterable-mark"/> : ''}
-        </th>
-      );
+      return <EntityListFieldHeader
+        key={fieldName}
+        fieldName={fieldName}
+        fieldDesc={fieldDesc}
+        sorting={fieldDesc.sortable && sorting && sorting.fieldName == fieldName ? sorting.order : false}
+        filterable={isFilerable}
+        onClick={this.onSortClick}
+      />;
     });
   }
 
   renderList() {
     const { state, schema, actions } = this.props;
     const items = entityListSelector(state, this.props);
-    const result = Object.keys(items).map((id => {
-      const item = items[id];
+    const result = items.map((item => {
       return (<EntityItem
-        key={id}
+        key={item.id}
         item={item}
         state={state}
         schema={schema}
@@ -48,7 +56,7 @@ class EntityList extends Component {
   renderAddNewBotton() {
     const { state } = this.props;
     const items = entityListSelector(state, this.props);
-    if (_has(items, 'new')) {
+    if (_find(items, {id: 'new'}) ) {
       return false;
     }
     return (
@@ -59,8 +67,8 @@ class EntityList extends Component {
   }
 
   onSortClick = (event) => {
-    const { schema, actions } = this.props;
     event.preventDefault();
+    const { schema, actions } = this.props;
     const fieldName = event.currentTarget.dataset.key;
     actions.sortEntityList(schema, fieldName);
   }
@@ -83,7 +91,6 @@ class EntityList extends Component {
           <Table striped hover>
             <thead>
               <tr>
-                <th data-fieldname="id">#</th>
                 {this.renderHeader()}
                 <th className="control-cell"></th>
               </tr>

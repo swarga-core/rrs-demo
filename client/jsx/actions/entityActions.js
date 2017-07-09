@@ -57,13 +57,6 @@ export function addNewEntity(entityType) {
   };
 }
 
-export function removeNewEntity(entityType) {
-  return {
-    type: types.REMOVE_NEW_ENTITY,
-    entityType,
-  };
-}
-
 export function removeEntity(entityType, id) {
   return {
     type: types.REMOVE_ENTITY,
